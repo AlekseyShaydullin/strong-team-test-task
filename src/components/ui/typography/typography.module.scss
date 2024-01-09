@@ -1,0 +1,52 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+@mixin Typography {
+  margin: 0;
+  font-weight: $bold;
+}
+
+@mixin h1 {
+  @include Typography;
+  font-weight: $black;
+  font-size: $xl-font-size;
+  line-height: $m-line-height;
+}
+
+@mixin h2 {
+  @include Typography;
+  font-size: $m-font-size;
+  line-height: $m-line-height;
+}
+
+@mixin p {
+  @include Typography;
+  font-size: $m-font-size;
+  line-height: $l-line-height;
+}
+
+@mixin span {
+  @include Typography;
+  font-weight: $regular;
+  font-size: $l-font-size;
+  line-height: $l-line-height;
+}
+
+
+.primary {
+  &_h1 {
+    @include h1;
+  }
+
+  &_h2 {
+    @include p;
+  }
+
+  &_p {
+    @include span;
+  }
+
+  &_span {
+    @include span;
+  }
+}
