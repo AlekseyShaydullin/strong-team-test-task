@@ -1,0 +1,23 @@
+@import './stylesheets/variables';
+// @import './stylesheets/mixins';
+@import url('./assets/fonts/fonts.css');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: $Gray-300;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: $Gray-600;
+}
