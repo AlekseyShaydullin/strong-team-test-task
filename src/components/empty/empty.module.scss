@@ -3,9 +3,11 @@
 
 .empty__wrapper {
   @include flex(column, center, center, 16px);
+  width: 736px;
   padding: 64px 24px;
   border-top: 1px solid $gray-400;
   border-radius: 8px;
+  box-sizing: border-box
 }
 
 .icon {

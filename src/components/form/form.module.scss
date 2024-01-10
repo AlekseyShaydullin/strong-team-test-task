@@ -1,9 +1,20 @@
 @use '../../stylesheets/variables.scss' as *;
 @use '../../stylesheets/mixins' as *;
 
+.formWrapper {
+  width: 736px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
 
 .form {
   @include flex(row, center, center, 8px);
+  width: 736px;
+  margin: 0 auto;
+  position: absolute;
+  top: -27px;
+  left: auto;
 }
 
 .textarea {

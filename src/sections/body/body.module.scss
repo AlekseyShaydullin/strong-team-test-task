@@ -1,0 +1,8 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.main {
+  background: $gray-600;
+  height: 80vh;
+  position: relative;
+}

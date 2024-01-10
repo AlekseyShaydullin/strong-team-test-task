@@ -2,5 +2,7 @@
 @use '../../stylesheets/mixins' as *;
 
 .counters__wrapper {
-  @include flex(row, space-between)
+  @include flex(row, space-between);
+  width: 736px;
+  margin-top: 92px;
 }

@@ -7,24 +7,26 @@ import ButtonIconText from '../ui/buttons/buttonIconText/buttonIconText';
 
 const Form: FC = (): JSX.Element => {
   return (
-    <form className={style.form}>
-      <TextareaAutosize
-        className={style.textarea}
-        placeholder={'Добавить новую задачу'}
-      />
-      <ButtonIconText
-        icon="plus"
-        tag="p"
-        title="Создать"
-        isColored
-        buttonClass={style.button}
-        iconClass={style.icon}
-        titleClass={style.title}
-        iconFirst={false}
-        // onClick={onClick}
-        // id={id}
-      />
-    </form>
+    <section className={style.formWrapper}>
+      <form className={style.form}>
+        <TextareaAutosize
+          className={style.textarea}
+          placeholder={'Добавить новую задачу'}
+        />
+        <ButtonIconText
+          icon="plus"
+          tag="p"
+          title="Создать"
+          isColored
+          buttonClass={style.button}
+          iconClass={style.icon}
+          titleClass={style.title}
+          iconFirst={false}
+          // onClick={onClick}
+          // id={id}
+        />
+      </form>
+    </section>
   );
 };
 

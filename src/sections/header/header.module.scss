@@ -3,7 +3,7 @@
 
 .header {
   @include flex(row, center, center, 12px);
-  height: 200px;
+  height: 20vh;
   background: $gray-700;
 }
 

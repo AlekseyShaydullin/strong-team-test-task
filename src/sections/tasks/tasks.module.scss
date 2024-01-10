@@ -1,0 +1,6 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.tasks {
+  @include flex(column, center, center, 25px)
+}
