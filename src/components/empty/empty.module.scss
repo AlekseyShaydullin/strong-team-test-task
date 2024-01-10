@@ -1,0 +1,21 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.empty__wrapper {
+  @include flex(column, center, center, 16px);
+  padding: 64px 24px;
+  border-top: 1px solid $gray-400;
+  border-radius: 8px;
+}
+
+.icon {
+  @include size(56px, 56px);
+}
+
+.title__wrapper {
+  @include flex(column, center, center, 4px);
+}
+
+.title {
+  font-weight: $bold;
+}
