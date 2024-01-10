@@ -1,4 +1,5 @@
 // import { useState } from 'react';
+import Task from '../task/task';
 import Form from '../ui/form/form';
 import './App.css';
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Form />
+      <Task />
     </>
   );
 }

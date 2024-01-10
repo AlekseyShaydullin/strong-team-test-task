@@ -1,0 +1,23 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.task__wrapper {
+  @include flex(row, center, center, 12px);
+  width: 736px;
+  background: $gray-400;
+  border-radius: 8px;
+  padding: 16px;
+
+  &:hover {
+    cursor: $cursor;
+  }
+}
+
+.title {
+  text-align: start;
+}
+
+.icon {
+  @include size(24px, 24px);
+  color: $gray-300;
+}
