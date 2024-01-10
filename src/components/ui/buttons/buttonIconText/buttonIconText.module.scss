@@ -1,0 +1,7 @@
+@use '../../../../stylesheets/variables.scss' as *;
+@use '../../../../stylesheets/mixins' as *;
+
+.button {
+  @include button-style-reset;
+  @include flex(row, space-between, center, 8px);
+}

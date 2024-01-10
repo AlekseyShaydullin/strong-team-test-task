@@ -1,0 +1,35 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+
+.form {
+  @include flex(row, center, center, 8px);
+}
+
+.textarea {
+  @include size(638px, 54px);
+  @include indents(16px, 0);
+  @include font('Inter', $l-font-size, $regular, $gray-300);
+  background: $gray-700;
+  border-radius: 8px;
+  outline: 0;
+  border: 0;
+  resize: none;
+  overflow: hidden;
+}
+
+.button.button {
+  @include size(120px, 52px);
+  padding: 16px;
+  border-radius: 12px;
+  background: $blue;
+}
+
+.icon {
+  @include size(16px, 16px);
+  color: $gray-100;
+}
+
+.title {
+  color: $gray-100;
+}
