@@ -3,7 +3,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import style from './form.module.scss';
 
-import ButtonIconText from '../buttons/buttonIconText/buttonIconText';
+import ButtonIconText from '../ui/buttons/buttonIconText/buttonIconText';
 
 const Form: FC = (): JSX.Element => {
   return (

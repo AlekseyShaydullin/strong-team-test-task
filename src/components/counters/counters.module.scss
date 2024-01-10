@@ -1,0 +1,6 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.counters__wrapper {
+  @include flex(row, space-between)
+}

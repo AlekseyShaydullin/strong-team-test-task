@@ -1,0 +1,18 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+
+.counter__wrapper {
+  @include flex(row, center, center, 8px);
+}
+
+.title {
+  color: $blue;
+}
+
+.counter {
+  @include font('Inter', $s-font-size, $bold, $gray-200);
+  padding: 2px 8px;
+  background: $gray-400;
+  border-radius: 20px;
+}
