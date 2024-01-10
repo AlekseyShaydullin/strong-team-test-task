@@ -9,8 +9,8 @@
 .textarea {
   @include size(638px, 54px);
   @include indents(16px, 0);
-  @include font('Inter', $l-font-size, $regular, $gray-300);
-  background: $gray-700;
+  @include font('Inter', $l-font-size, $regular, $gray-100);
+  background: $gray-500;
   border-radius: 8px;
   outline: 0;
   border: 0;

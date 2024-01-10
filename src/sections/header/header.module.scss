@@ -1,0 +1,24 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.header {
+  @include flex(row, center, center, 12px);
+  height: 200px;
+  background: $gray-700;
+}
+
+.icon {
+  @include size(22px, 36px);
+}
+
+.title__wrapper {
+  @include flex(row, center, center, 0);
+}
+
+.titleOne {
+  color: $blue;
+}
+
+.titleTwo {
+  color: $purpleDark;
+}
