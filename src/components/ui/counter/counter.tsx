@@ -5,14 +5,14 @@ import Typography from '../typography/typography';
 interface ICounter {
   title: string;
   counterTask: number;
-  counterDone?: number;
+  counterResult?: number;
   result?: boolean;
 }
 
 const Counter: FC<ICounter> = ({
   title,
   counterTask,
-  counterDone,
+  counterResult,
   result,
 }): JSX.Element => {
   return (
@@ -24,7 +24,7 @@ const Counter: FC<ICounter> = ({
         <>
           <span
             className={style.counter}
-          >{`${counterTask} из ${counterDone}`}</span>
+          >{`${counterResult} из ${counterTask}`}</span>
         </>
       ) : (
         <span className={style.counter}>{counterTask}</span>

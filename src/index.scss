@@ -1,11 +1,12 @@
 @import './stylesheets/variables';
-// @import './stylesheets/mixins';
+@import './stylesheets/mixins';
 @import url('./assets/fonts/fonts.css');
 
 :root {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   color: $gray-100;
+  text-align: center;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
