@@ -40,7 +40,7 @@ interface IButtonIconText {
   /**
    * callback при клике на кнопку
    */
-  onClick?: (id: string) => void;
+  onClick?: () => void;
   /**
    * ID кнопки
    */
@@ -85,7 +85,7 @@ const ButtonIconText = forwardRef<Ref, IButtonIconText>(
     return (
       <button
         className={cn(style[`button`], buttonClass)}
-        onClick={() => onClick!(id!)}
+        onClick={onClick}
         ref={ref}
         id={id}
       >

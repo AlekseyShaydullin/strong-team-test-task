@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.form {
+.label {
   @include flex(row, center, center, 8px);
   width: 736px;
   margin: 0 auto;

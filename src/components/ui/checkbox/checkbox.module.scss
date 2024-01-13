@@ -43,12 +43,12 @@
   }
 }
 
-.customСheckboxDone:checked+.cust::after {
+.customСheckboxDone:checked + .cust::after {
   @include size(5px, 10px);
   opacity: 1;
 }
 
-.customСheckboxDone:checked+.cust {
+.customСheckboxDone:checked + .cust {
   border: 4px solid $purpleDark;
   background-color: $purpleDark;
 }

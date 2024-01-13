@@ -4,3 +4,9 @@
 .tasks {
   @include flex(column, center, center, 25px)
 }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
