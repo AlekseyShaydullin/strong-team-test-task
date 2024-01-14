@@ -1,0 +1,13 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.customInput {
+  @include size(130px, 52px);
+  @include button-style-reset;
+  margin: 0 8px;
+  padding: 16px;
+  border-radius: 12px;
+  background: $purple;
+  color: $gray-100;
+  cursor: $cursor;
+}

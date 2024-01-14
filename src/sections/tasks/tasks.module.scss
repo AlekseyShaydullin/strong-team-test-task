@@ -2,7 +2,18 @@
 @use '../../stylesheets/mixins' as *;
 
 .tasks {
-  @include flex(column, center, center, 25px)
+  @include flex(column, center, center, 25px);
+  max-height: 80vh;
+}
+
+.wrapperTasks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 62vh;
+  border-radius: 8px;
+  outline: none;
+  overflow-y: scroll;
 }
 
 ul {

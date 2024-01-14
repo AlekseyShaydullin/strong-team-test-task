@@ -16,17 +16,19 @@ const Tasks: FC = (): JSX.Element => {
   return (
     <section className={style.tasks}>
       <Counters counterTask={tasks.length} counterResult={counter} />
-      {tasks.length !== 0 ? (
-        tasks.map((task) => {
-          return (
-            <ul key={task.id}>
-              <Task {...task} />
-            </ul>
-          );
-        })
-      ) : (
-        <Empty />
-      )}
+      <div className={style.wrapperTasks}>
+        {tasks.length !== 0 ? (
+          tasks.map((task) => {
+            return (
+              <ul key={task.id}>
+                <Task {...task} />
+              </ul>
+            );
+          })
+        ) : (
+          <Empty />
+        )}
+      </div>
     </section>
   );
 };

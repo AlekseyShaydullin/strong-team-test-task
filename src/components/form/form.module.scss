@@ -9,8 +9,9 @@
 }
 
 .label {
-  @include flex(row, center, center, 8px);
-  width: 736px;
+  @include flex(row, center, center);
+  max-width: 736px;
+  width: 100%;
   margin: 0 auto;
   position: absolute;
   top: -27px;
@@ -18,9 +19,10 @@
 }
 
 .textarea {
-  @include size(638px, 54px);
   @include indents(16px, 0);
   @include font('Inter', $l-font-size, $regular, $gray-100);
+  max-width: 638px;
+  width: 100%;
   background: $gray-500;
   border-radius: 8px;
   outline: 0;

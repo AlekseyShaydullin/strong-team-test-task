@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuid4 } from 'uuid';
 
 import { ITask } from '../../models/ITask';
+import { IAddTaskAction } from '../../utils/types/common';
 
 interface ITodo {
   tasks: Array<ITask>;
@@ -17,11 +18,12 @@ const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
-    addTask(state, action: PayloadAction<string>) {
+    addTask(state, action: PayloadAction<IAddTaskAction>) {
       state.tasks.push({
         id: uuid4(),
-        task: action.payload,
+        task: action.payload.todo,
         result: false,
+        date: action.payload.date,
       });
     },
     addResultTask(state, action: PayloadAction<string>) {

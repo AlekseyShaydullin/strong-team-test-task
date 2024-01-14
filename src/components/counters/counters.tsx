@@ -13,7 +13,7 @@ const Counters: FC<ICounters> = ({
 }): JSX.Element => {
   return (
     <div className={style.counters__wrapper}>
-      <Counter title={'Активные задачи:'} counterTask={counterTask} />
+      <Counter title={'Всего задач:'} counterTask={counterTask} />
       <Counter
         title={'Выполненно задач:'}
         counterTask={counterTask}

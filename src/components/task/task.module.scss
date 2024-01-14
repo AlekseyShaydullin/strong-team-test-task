@@ -2,7 +2,7 @@
 @use '../../stylesheets/mixins' as *;
 
 .task__wrapper {
-  @include flex(row, space-between, center, 12px);
+  @include flex(row, space-between, center);
   width: 736px;
   background: $gray-400;
   border-radius: 8px;
@@ -14,9 +14,21 @@
   }
 }
 
+.todo {
+  width: 630px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
 .title {
   text-align: start;
   transition: color .3s ease-in-out;
+}
+
+.span {
+  color: $purple;
+  font-size: $s-font-size;
 }
 
 .title__checked {
