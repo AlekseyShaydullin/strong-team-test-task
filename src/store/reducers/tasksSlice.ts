@@ -24,6 +24,7 @@ const tasksSlice = createSlice({
         task: action.payload.todo,
         result: false,
         date: action.payload.date,
+        plans: action.payload.plans,
       });
     },
     addResultTask(state, action: PayloadAction<string>) {

@@ -1,0 +1,25 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.wrapperRadio {
+  @include flex(row, center, center);
+  border-radius: 8px;
+  background: $purple-Light;
+}
+
+
+.radioClass {
+  background-color: $gray-500;
+  border-color: $purple;
+}
+
+.labelClass {
+  @include font('Inter', $s-font-size, $regular, $gray-100);
+  padding-left: 6px;
+}
+
+.icon {
+  @include size(16px, 16px);
+  color: $gray-100;
+  padding: 8px 8px 8px 0;
+}

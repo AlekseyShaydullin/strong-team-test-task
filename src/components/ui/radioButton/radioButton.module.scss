@@ -1,0 +1,11 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.wrapper {
+  @include flex(row, center, center);
+  padding: 8px;
+}
+
+.radio {
+  margin: 0;
+}

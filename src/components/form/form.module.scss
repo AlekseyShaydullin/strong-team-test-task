@@ -6,6 +6,7 @@
   margin: 0 auto;
   display: flex;
   position: relative;
+  border: none;
 }
 
 .label {
@@ -45,4 +46,18 @@
 
 .title {
   color: $gray-100;
+}
+
+.radioButtons {
+  @include flex(row, left, center);
+  max-width: 736px;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 30px;
+  left: auto;
+}
+
+.labelPlans {
+  @include flex(row, center, center, 8px);
 }

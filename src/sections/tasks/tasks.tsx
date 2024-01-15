@@ -18,13 +18,15 @@ const Tasks: FC = (): JSX.Element => {
       <Counters counterTask={tasks.length} counterResult={counter} />
       <div className={style.wrapperTasks}>
         {tasks.length !== 0 ? (
-          tasks.map((task) => {
-            return (
-              <ul key={task.id}>
-                <Task {...task} />
-              </ul>
-            );
-          })
+          tasks
+            .map((task) => {
+              return (
+                <ul key={task.id}>
+                  <Task {...task} />
+                </ul>
+              );
+            })
+            .reverse()
         ) : (
           <Empty />
         )}

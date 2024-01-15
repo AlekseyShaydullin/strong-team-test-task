@@ -14,28 +14,6 @@
   }
 }
 
-.todo {
-  width: 630px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.title {
-  text-align: start;
-  transition: color .3s ease-in-out;
-}
-
-.span {
-  color: $purple;
-  font-size: $s-font-size;
-}
-
-.title__checked {
-  text-decoration: line-through;
-  color: $gray-300;
-}
-
 .icon {
   @include size(24px, 24px);
   color: $gray-300;

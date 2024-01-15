@@ -1,0 +1,39 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.todo {
+  width: 630px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.task {
+  @include flex(row, left, center, 8px);
+}
+
+.icon {
+  @include size(20px, 20px);
+  display: inline-block;
+  color: $purple;
+}
+
+.important.important {
+  color: $red;
+}
+
+.title {
+  width: 640px;
+  text-align: start;
+  transition: color .3s ease-in-out;
+
+  &__checked.title__checked {
+    text-decoration: line-through;
+    color: $gray-300;
+  }
+}
+
+.span {
+  color: $purple;
+  font-size: $m-font-size;
+}
