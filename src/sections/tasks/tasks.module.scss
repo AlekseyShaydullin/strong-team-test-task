@@ -2,7 +2,7 @@
 @use '../../stylesheets/mixins' as *;
 
 .tasks {
-  @include flex(column, center, center, 25px);
+  @include flex(column, center, center, 10px);
   max-height: 80vh;
 }
 
@@ -13,6 +13,9 @@
   max-height: 62vh;
   border-radius: 8px;
   outline: none;
+}
+
+.overflow {
   overflow-y: scroll;
 }
 

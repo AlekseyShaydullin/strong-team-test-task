@@ -1,0 +1,55 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.filter {
+  @include flex(row, center, center, 8px);
+}
+
+.icon {
+  width: 18px;
+  height: 21px;
+  color: $gray-200;
+  transform: rotate(180deg);
+}
+
+.iconOpen {
+  width: 18px;
+  height: 21px;
+  color: $gray-200;
+  transform: rotate(0);
+}
+
+.title {
+  font-size: $s-font-size;
+  color: $gray-200;
+  &_filter {
+    color: $blue;
+  }
+}
+
+.title:hover {
+  color: $blue;
+}
+
+.closeButton {
+  &:hover .icon {
+    color: $blue
+  }
+}
+
+.dropdown{
+  @include flex(column);
+  width: 135px;
+  background-color: $gray-100;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);;
+  border-radius: 4px;
+  position: absolute;
+  top: 26px;
+  left: 0px;
+  z-index: 2;
+}
+
+.itemParent {
+  @include font('Inter', $s-font-size, $regular, $gray-700);
+  @include line-sizes(25px);
+}

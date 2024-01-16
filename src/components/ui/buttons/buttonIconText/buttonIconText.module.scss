@@ -3,5 +3,5 @@
 
 .button {
   @include button-style-reset;
-  @include flex(row, sp, center, 8px);
+  @include flex(row, space-between, center, 8px);
 }

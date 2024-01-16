@@ -1,0 +1,9 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+
+.filters__wrapper {
+  @include flex(row, space-between, center);
+  width: 736px;
+  position: relative;
+}

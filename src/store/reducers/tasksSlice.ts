@@ -6,12 +6,18 @@ import { IAddTaskAction } from '../../utils/types/common';
 
 interface ITodo {
   tasks: Array<ITask>;
+  sortingTasks: Array<ITask>;
   counter: number;
+  filter: string;
+  sorting: string;
 }
 
 const initialState: ITodo = {
   tasks: [],
+  sortingTasks: [],
   counter: 0,
+  filter: 'DEFAULT',
+  sorting: 'DEFAULT',
 };
 
 const tasksSlice = createSlice({
@@ -44,13 +50,29 @@ const tasksSlice = createSlice({
         state.counter--;
       }
     },
+    selectFilter(state, action: PayloadAction<string>) {
+      if (state.filter !== action.payload) {
+        state.filter = action.payload;
+      }
+    },
+    selectSorting(state, action: PayloadAction<string>) {
+      if (state.sorting !== action.payload) {
+        state.sorting = action.payload;
+      }
+    },
   },
   selectors: {
     selectState: (state) => state,
   },
 });
 
-export const { addTask, addResultTask, deleteTask } = tasksSlice.actions;
+export const {
+  addTask,
+  addResultTask,
+  deleteTask,
+  selectFilter,
+  selectSorting,
+} = tasksSlice.actions;
 export const { selectState } = tasksSlice.selectors;
 
 export default tasksSlice.reducer;

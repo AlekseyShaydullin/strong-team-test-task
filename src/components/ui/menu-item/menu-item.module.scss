@@ -1,0 +1,30 @@
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.item {
+  @include flex(row, space-between, center);
+  box-sizing: border-box;
+  padding: 2px 4px;
+  transition: all 0.1s linear;
+
+  &:first-child:hover {
+    border-radius: 4px;
+  }
+
+  &:last-child:hover {
+    border-radius: 4px;
+  }
+
+  &:hover {
+    cursor: $cursor;
+    background-color: $gray-200;
+  }
+}
+
+.icon {
+  @include size(20px, 20px);
+}
+
+div.check {
+  color: $purple;
+}

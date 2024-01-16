@@ -16,7 +16,7 @@ import RadioButtons from './radioButtons/radioButtons';
 const Form: FC = (): JSX.Element => {
   const [todo, setTodo] = useState<string>('');
   const [startDate, setStartDate] = useState<Date>(new Date());
-  const [plans, setPlans] = useState<string>(optionsValue.WORK);
+  const [plans, setPlans] = useState<string>(optionsLabel.WORK);
   const [checked, setChecked] = useState<boolean>(true);
 
   const dispatch = useAppDispatch();
@@ -48,6 +48,7 @@ const Form: FC = (): JSX.Element => {
     if (todo.trim().length) {
       dispatch(addTask({ todo, date, plans }));
       setTodo('');
+      setPlans(optionsLabel.WORK);
     }
   };
 
