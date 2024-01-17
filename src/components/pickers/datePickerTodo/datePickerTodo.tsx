@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from 'date-fns/locale/ru';
 
-import ExampleCustomInput from '../ui/ExampleCustomInput/ExampleCustomInput';
+import ExampleCustomInput from '../../ui/ExampleCustomInput/ExampleCustomInput';
 
 interface iProps {
   startDate: Date;

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuid4 } from 'uuid';
 
 import { ITask } from '../../models/ITask';
-import { IAddTaskAction } from '../../utils/types/common';
+import { IAddTaskAction, IChangeTaskAction } from '../../utils/types/common';
 
 interface ITodo {
   tasks: Array<ITask>;
@@ -60,6 +60,15 @@ const tasksSlice = createSlice({
         state.sorting = action.payload;
       }
     },
+    changeTask(state, action: PayloadAction<IChangeTaskAction>) {
+      state.tasks.forEach((task) => {
+        if (task.id === action.payload.id) {
+          task.date = action.payload.date;
+          task.task = action.payload.todo;
+          task.plans = action.payload.plans;
+        }
+      });
+    },
   },
   selectors: {
     selectState: (state) => state,
@@ -72,6 +81,7 @@ export const {
   deleteTask,
   selectFilter,
   selectSorting,
+  changeTask,
 } = tasksSlice.actions;
 export const { selectState } = tasksSlice.selectors;
 

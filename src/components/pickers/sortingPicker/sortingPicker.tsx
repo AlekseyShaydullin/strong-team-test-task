@@ -2,14 +2,14 @@ import { FC, useEffect, useRef, useState } from 'react';
 
 import style from './sortingPicker.module.scss';
 
-import ButtonIconText from '../ui/buttons/buttonIconText/buttonIconText';
-import Menu from '../menu/menu';
+import ButtonIconText from '../../ui/buttons/buttonIconText/buttonIconText';
+import Menu from '../../menu/menu';
 
-import { useAppDispatch } from '../../utils/hooks/redux';
-import useOutsideClickAndEscape from '../../utils/hooks/useOutsideClickAndEscape';
-import { IOptions, optionsValueSorting } from '../../utils/types/common';
+import { useAppDispatch } from '../../../utils/hooks/redux';
+import useOutsideClickAndEscape from '../../../utils/hooks/useOutsideClickAndEscape';
+import { IOptions, optionsValueSorting } from '../../../utils/types/common';
 
-import { selectSorting } from '../../store/reducers/tasksSlice';
+import { selectSorting } from '../../../store/reducers/tasksSlice';
 
 import { options } from './sortingConfig';
 

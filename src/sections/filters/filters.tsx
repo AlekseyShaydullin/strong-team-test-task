@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import style from './filters.module.scss';
 
-import FilterPicker from '../../components/filterPicker/filterPicker';
-import SortingPicker from '../../components/sortingPicker/sortingPicker';
+import FilterPicker from '../../components/pickers/filterPicker/filterPicker';
+import SortingPicker from '../../components/pickers/sortingPicker/sortingPicker';
 
 const Filters: FC = (): JSX.Element => {
   return (

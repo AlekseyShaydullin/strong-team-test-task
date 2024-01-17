@@ -2,14 +2,14 @@ import { FC, useEffect, useRef, useState } from 'react';
 
 import style from './filterPicker.module.scss';
 
-import Menu from '../menu/menu';
-import ButtonIconText from '../ui/buttons/buttonIconText/buttonIconText';
+import Menu from '../../menu/menu';
+import ButtonIconText from '../../ui/buttons/buttonIconText/buttonIconText';
 
-import { IOptions, optionsValueFilter } from '../../utils/types/common';
-import useOutsideClickAndEscape from '../../utils/hooks/useOutsideClickAndEscape';
-import { useAppDispatch } from '../../utils/hooks/redux';
+import { IOptions, optionsValueFilter } from '../../../utils/types/common';
+import useOutsideClickAndEscape from '../../../utils/hooks/useOutsideClickAndEscape';
+import { useAppDispatch } from '../../../utils/hooks/redux';
 
-import { selectFilter } from '../../store/reducers/tasksSlice';
+import { selectFilter } from '../../../store/reducers/tasksSlice';
 
 import { options } from './filterConfig';
 

@@ -1,5 +1,5 @@
-@use '../../stylesheets/variables.scss' as *;
-@use '../../stylesheets/mixins' as *;
+@use '../../../stylesheets/variables.scss' as *;
+@use '../../../stylesheets/mixins' as *;
 
 .filter {
   @include flex(row, center, center, 8px);
@@ -22,6 +22,8 @@
 .title {
   font-size: $s-font-size;
   color: $gray-200;
+  transition: color .2s ease-in-out;
+
   &_filter {
     color: $blue;
   }
@@ -32,6 +34,8 @@
 }
 
 .closeButton {
+  transition: color .2s ease-in-out;
+
   &:hover .icon {
     color: $blue
   }

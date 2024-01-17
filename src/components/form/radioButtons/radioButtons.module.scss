@@ -7,15 +7,22 @@
   background: $purple-Light;
 }
 
-
 .radioClass {
   background-color: $gray-500;
   border-color: $purple;
+
+  &:hover {
+    cursor: $cursor;
+  }
 }
 
 .labelClass {
   @include font('Inter', $s-font-size, $regular, $gray-100);
   padding-left: 6px;
+
+  &:hover {
+    cursor: $cursor;
+  }
 }
 
 .icon {

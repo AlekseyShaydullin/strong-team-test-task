@@ -13,7 +13,13 @@ import { getLocalizationDate } from '../../utils/helpers/getLocalizationDate';
 import { deleteTask } from '../../store/reducers/tasksSlice';
 import TodoTextBlock from './todoTextBlock/todoTextBlock';
 
-const Task: FC<ITask> = ({ id, task, result, date, plans }): JSX.Element => {
+interface ITaskProps {
+  tasks: ITask;
+  openPopup: (id: string) => void;
+}
+
+const Task: FC<ITaskProps> = ({ tasks, openPopup }): JSX.Element => {
+  const { date, id, result, plans, task } = tasks;
   const dispatch = useAppDispatch();
 
   const handleRemove = () => {
@@ -31,12 +37,20 @@ const Task: FC<ITask> = ({ id, task, result, date, plans }): JSX.Element => {
         task={task}
         plans={plans}
       />
-      <ButtonIcon
-        icon="trash"
-        isColored
-        extraClass={style.icon}
-        onClick={handleRemove}
-      />
+      <div className={style.buttons}>
+        <ButtonIcon
+          icon="edit"
+          isColored
+          extraClass={style.icon}
+          onClick={() => openPopup(id)}
+        />
+        <ButtonIcon
+          icon="trash"
+          isColored
+          extraClass={style.icon}
+          onClick={handleRemove}
+        />
+      </div>
     </li>
   );
 };

@@ -1,37 +1,40 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import style from './form.module.scss';
 
-import { addTask } from '../../store/reducers/tasksSlice';
-
-import DatePickerTodo from '../datePickerTodo/datePickerTodo';
+import DatePickerTodo from '../pickers/datePickerTodo/datePickerTodo';
 import ButtonIconText from '../ui/buttons/buttonIconText/buttonIconText';
 
-import { useAppDispatch } from '../../utils/hooks/redux';
-import { getConvertDate } from '../../utils/helpers/getConvertDate';
-import { optionsLabel, optionsValue } from '../../utils/types/common';
 import RadioButtons from './radioButtons/radioButtons';
+import { IOptionsRadioButtons } from './radioButtonsConfig';
 
-const Form: FC = (): JSX.Element => {
-  const [todo, setTodo] = useState<string>('');
-  const [startDate, setStartDate] = useState<Date>(new Date());
-  const [plans, setPlans] = useState<string>(optionsLabel.WORK);
+interface IForm {
+  valueForm: string;
+  placeholder: string;
+  startDate: Date;
+  iconButton: string;
+  titleButton: string;
+  options: Array<IOptionsRadioButtons>;
+  getTextTask: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  setStartDate: Dispatch<SetStateAction<Date>>;
+  saveTask: () => void;
+  changePlan: (option: string) => void;
+}
+
+const Form: FC<IForm> = ({
+  valueForm,
+  placeholder,
+  startDate,
+  iconButton,
+  titleButton,
+  options,
+  getTextTask,
+  setStartDate,
+  saveTask,
+  changePlan,
+}): JSX.Element => {
   const [checked, setChecked] = useState<boolean>(true);
-
-  const dispatch = useAppDispatch();
-
-  const getTextTask = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setTodo(e.target.value);
-  };
-
-  const date = getConvertDate(startDate);
-
-  const options = [
-    { label: optionsLabel.IMPORTANT, value: optionsValue.IMPORTANT },
-    { label: optionsLabel.HOME, value: optionsValue.HOME },
-    { label: optionsLabel.WORK, value: optionsValue.WORK },
-  ];
 
   const togglePlans = (id: string, label: string) => {
     if (id === label) {
@@ -40,34 +43,22 @@ const Form: FC = (): JSX.Element => {
     return;
   };
 
-  const changePlan = (option: string) => {
-    setPlans(option);
-  };
-
-  const saveTask = () => {
-    if (todo.trim().length) {
-      dispatch(addTask({ todo, date, plans }));
-      setTodo('');
-      setPlans(optionsLabel.WORK);
-    }
-  };
-
   return (
     <section className={style.formWrapper}>
       <label className={style.label} htmlFor="textarea">
         <TextareaAutosize
           className={style.textarea}
-          value={todo}
-          placeholder={'Добавить новую задачу'}
+          value={valueForm}
+          placeholder={placeholder}
           maxRows={1}
           onChange={(e) => getTextTask(e)}
           id="textarea"
         />
         <DatePickerTodo startDate={startDate} setStartDate={setStartDate} />
         <ButtonIconText
-          icon="plus"
+          icon={iconButton}
           tag="p"
-          title="Создать"
+          title={titleButton}
           isColored
           buttonClass={style.button}
           iconClass={style.icon}

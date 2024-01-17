@@ -1,0 +1,41 @@
+@use '../../../stylesheets/variables' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.wrapper {
+  background: $gray-700;
+  border-radius: 20px;
+}
+
+.headerPopup {
+  @include flex(row, center, center, 12px);
+  height: 15vh;
+  background: $gray-700;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.icon {
+  @include size(22px, 36px);
+}
+
+.title__wrapper {
+  @include flex(row, center, center, 10px);
+  padding-bottom: 10px;
+}
+
+.titleOne {
+  color: $blue;
+}
+
+.titleTwo {
+  color: $purpleDark;
+}
+
+.formPopup {
+  padding: 0 20px;
+  height: 15vh;
+  position: relative;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: $gray-600;
+}

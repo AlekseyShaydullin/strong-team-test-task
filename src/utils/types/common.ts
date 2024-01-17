@@ -11,6 +11,10 @@ export interface IAddTaskAction {
   plans: string;
 }
 
+export interface IChangeTaskAction extends IAddTaskAction {
+  id: string;
+}
+
 export interface IOptions {
   label: string;
   value: string;

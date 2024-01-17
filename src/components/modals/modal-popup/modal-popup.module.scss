@@ -1,0 +1,30 @@
+@use '../../../stylesheets/variables' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.modal {
+  @include flex(row, center, center, 0);
+  @include size(100%, 100%);
+  @include position(fixed, 0, $left: 0);
+  z-index: 100;
+}
+
+.content {
+  position: absolute;
+  z-index: 2;
+}
+
+.button {
+  @include position(absolute, -20px, -20px);
+  cursor: $cursor;
+  background: 0;
+  border: 0;
+  padding: 0;
+  & * {
+    stroke: $gray-300;
+  }
+}
+
+.icon {
+  @include size(25px, 25px);
+  color: $gray-700;
+}

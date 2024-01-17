@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { v4 as uuid4 } from 'uuid';
 
 import style from './radioButtons.module.scss';
 
@@ -14,7 +15,7 @@ interface IRadioButtons {
 }
 
 /**
- * Компонент-обёртка для кнопок с иконками и текстом
+ * Компонент-обёртка для радио кнопок с иконками и текстом
  * @example
  * <RadioButtons
  *  option={option}
@@ -40,7 +41,7 @@ const RadioButtons: FC<IRadioButtons> = ({
         checked={checked}
         onClick={changePlan}
         onChange={togglePlans}
-        id={option.label}
+        id={uuid4()}
         key={option.label}
       />
       <Icon
