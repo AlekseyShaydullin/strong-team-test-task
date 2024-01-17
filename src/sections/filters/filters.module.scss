@@ -7,3 +7,7 @@
   width: 736px;
   position: relative;
 }
+
+.wrapper {
+  @include flex(row, space-between, center, 6px);
+}

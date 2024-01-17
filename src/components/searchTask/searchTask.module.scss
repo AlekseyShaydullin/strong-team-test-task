@@ -1,0 +1,41 @@
+@use '../../stylesheets/variables.scss' as *;
+@use '../../stylesheets/mixins' as *;
+
+.search__form {
+  @include flex(row, center, center);
+  position: relative;
+}
+
+.iconSearch {
+  @include size(18px, 18px);
+  color: $gray-700;
+  position: absolute;
+  right: 283px;
+  bottom: 3px;
+  opacity: .5;
+}
+
+.input {
+  width: 255px;
+  background: $gray-200;
+  padding: 5px 25px;
+  border: 1px solid $gray-700;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+}
+
+.iconClose {
+  @include size(18px, 18px);
+  color: $gray-700;
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  opacity: .4;
+  transition: opacity .2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+    cursor: $cursor;
+  }
+}
