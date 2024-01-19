@@ -4,7 +4,7 @@ import Icon from '../ui/icon/icon';
 import Typography from '../ui/typography/typography';
 
 /**
- * Компонент Empty - Отрисовывается, когда нет задачь в туду листе
+ * Компонент Empty - Отрисовывается, когда нет задач в туду листе
  * @returns {JSX.Element}
  */
 const Empty: FC = (): JSX.Element => {

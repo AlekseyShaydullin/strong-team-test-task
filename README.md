@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Тестовая работа для [STRONG TEAM](https://strongteam.tech/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Ссылка на развёрнутый проект: [STRONG TEAM Test Task](https://todo-list-dnd-strong-team.vercel.app/)
 
-Currently, two official plugins are available:
+### Стек технологий:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="Typescript" **alt="Typescript" width="50" height="50"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/a50fa57465e82a1147fa512fb3d64cc5902df578/icons/React-Dark.svg" title="React" alt="React" width="50" height="50"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/d1c752b99bb25a0e5aa363bae1db2809173ee966/icons/Vite-Dark.svg" title="Vite" alt="Vite" width="50" height="50"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/a50fa57465e82a1147fa512fb3d64cc5902df578/icons/Sass.svg" title="SASS"**alt="SASS" width="50" height="50"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/a50fa57465e82a1147fa512fb3d64cc5902df578/icons/Redux.svg" title="Redux" alt="Redux " width="50" height="50"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/eslint/eslint-original.svg" title="Eslint"**alt="Eslint" width="50" height="50"/>&nbsp;
+</div>
 
-## Expanding the ESLint configuration
+### Для локального запуска используйте:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+npm i
+npm run dev
 
-- Configure the top-level `parserOptions` property like this:
+### Реализованные фичи:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Возможность добавлять задачу
+- Возможность добавлять категорию задчи: Дом или Работа
+- Возможность удалять задачу
+- Возможность редактировать задачу
+- Возможность помечать задачи как выполненные
+- Счётчики: "Всего задач" и "Выполненно задач"
+- Возможность выполнять поиск по списку задач
+- Возможность сортировки по Тексту задачи / Дате исполнения задачи
+- Возможность фильтровать по категориям: Важное / Дом / Работа
+- Возможность drag and drop для изменения порядка задач
+- Несбрасоваемое состояние приложения

@@ -8,7 +8,7 @@ interface ICounter {
    */
   title: string;
   /**
-   * Количество задач
+   * Общее количество задач
    */
   counterTask: number;
   /**
