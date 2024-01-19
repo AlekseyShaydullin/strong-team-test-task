@@ -2,7 +2,8 @@
 @use '../../../stylesheets/mixins' as *;
 
 .customInput {
-  @include size(130px, 52px);
+  @include font('Inter', $m-font-size, $regular, $gray-100);
+  @include size(140px, 52px);
   @include button-style-reset;
   margin: 0 8px;
   padding: 16px;

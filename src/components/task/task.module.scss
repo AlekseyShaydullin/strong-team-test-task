@@ -24,6 +24,16 @@
   color: $gray-300;
   transition: color .2s ease-in-out;
 
+  &__trash {
+    @include size(23px, 23px);
+    color: $gray-300;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+      color: $gray-100;
+    }
+  }
+
   &:hover {
     color: $gray-100;
   }

@@ -87,9 +87,9 @@ const Task: FC<ITaskProps> = ({
           onClick={() => openPopup(id)}
         />
         <ButtonIcon
-          icon="trash"
+          icon="trash-button"
           isColored
-          extraClass={style.icon}
+          extraClass={style.icon__trash}
           onClick={handleRemove}
         />
       </div>
