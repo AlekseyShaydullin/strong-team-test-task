@@ -4,14 +4,41 @@ import cn from 'classnames';
 import style from './radioButton.module.scss';
 
 interface IRadioButton {
+  /**
+   * Название кнопки
+   */
   label: string;
+  /**
+   * Список опций
+   */
   option: string;
+  /**
+   * Можно стилизовать обёртку
+   */
   wrapperClass?: string;
+  /**
+   * Можно стилизовать радио кнопку
+   */
   radioClass?: string;
+  /**
+   * Можно стилизовать лэйбл радио кнопки
+   */
   labelClass?: string;
+  /**
+   * Состояние радио кнопки
+   */
   checked: boolean;
+  /**
+   * callback при клике на радио кнопку
+   */
   onClick: (option: string) => void;
+  /**
+   * callback при изменении состояния радио кнопки
+   */
   onChange: (id: string, option: string) => void;
+  /**
+   * id радио кнопки
+   */
   id: string;
 }
 
@@ -20,6 +47,7 @@ interface IRadioButton {
  * @example
  * <RadioButton
  *    label="Название кнопки"
+ *    option={option}
  *    wrapperClass={style.wrapperRadio}
  *    radioClass={style.radioClass}
  *    labelClass={style.labelClass}

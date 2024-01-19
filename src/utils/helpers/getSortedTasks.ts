@@ -6,7 +6,7 @@ import { ITask } from '../../models/ITask';
  * Функция сортировки данных
  * @param tasks - Принимает массив задач
  * @param sorting - Принимает вид сортировки
- * @returns Возвращает отсортированный (по дате или по тексту задачи) массив объектов
+ * @returns {Array<ITask>} Возвращает отсортированный массив (по дате или по тексту задачи)
  */
 const getSortedTasks = (tasks: Array<ITask>, sorting: string): Array<ITask> => {
   const sortedTasks = produce(tasks, (draft) => {

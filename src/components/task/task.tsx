@@ -26,6 +26,19 @@ interface ITaskProps {
   onDrop: (e: DragEvent<HTMLLIElement>) => void;
 }
 
+/**
+ * Компонент Task - Отвечает за отрисовку и состояние Таски
+ * @param tasks - Массив тасок
+ * @param isLeave - Сосстояние при DnD начало движения
+ * @param isOver - Сосстояние при DnD конец движения
+ * @param openPopup - callback отвечающий за открытие Popup
+ * @param onDragStart - callback при DnD - Срабатывает, когда пользователь начинает перетаскивать элемент.
+ * @param onDragLeave - callback при DnD - Событие, которое вызывается, когда элемент над которым находится курсор мыши, покидает область другого элемента
+ * @param onDragEnd - callback при DnD - Срабатывает, когда пользователь прекращает перетаскивать что-то.
+ * @param onDragOver - callback при DnD - Срабатывает на действительной цели падения, когда перетаскиваемое содержимое перетаскивается на нее.
+ * @param onDrop - callback при DnD Срабатывает, когда что-то падает на допустимую цель падения.
+ * @returns {JSX.Element}
+ */
 const Task: FC<ITaskProps> = ({
   tasks,
   isLeave,

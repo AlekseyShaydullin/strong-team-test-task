@@ -1,4 +1,4 @@
-import { optionsLabel, optionsValue } from '../../utils/types/common';
+import { optionsLabel, optionsValue } from '../../utils/constants';
 
 export interface IOptionsRadioButtons {
   label: optionsLabel;

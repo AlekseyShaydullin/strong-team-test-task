@@ -20,7 +20,16 @@ interface IModalChangeTask {
   closeModal: () => void;
 }
 
-const ModalChangeTask: FC<IModalChangeTask> = ({ task, closeModal }) => {
+/**
+ * Компонент ModalChangeTask - Модалка, которая позволяет менять выбранную задачу
+ * @param task - Данные выбранной задачи
+ * @param closeModal - callback функция, которая отвечает за закрытие модального окна
+ * @returns {JSX.Element}
+ */
+const ModalChangeTask: FC<IModalChangeTask> = ({
+  task,
+  closeModal,
+}): JSX.Element => {
   const [todo, setTodo] = useState<string>(task.task);
   const [plans, setPlans] = useState<string>(task.plans);
   const [startDate, setStartDate] = useState<Date>(new Date());
@@ -29,20 +38,23 @@ const ModalChangeTask: FC<IModalChangeTask> = ({ task, closeModal }) => {
   const dispatch = useAppDispatch();
   const date = getConvertDate(startDate);
 
+  // Собираем измения в тексте задачи
   const getTextTask = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTodo(e.target.value);
   };
 
+  // Собираем изменения категории задачи
+  const changePlan = (option: string) => {
+    setPlans(option);
+  };
+
+  // Сохраняем собранные изменения в сторе
   const saveTask = () => {
     if (todo.trim().length) {
       closeModal();
       dispatch(changeTask({ todo, date, plans, id }));
       setTodo('');
     }
-  };
-
-  const changePlan = (option: string) => {
-    setPlans(option);
   };
 
   return (

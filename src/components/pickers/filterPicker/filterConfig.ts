@@ -2,7 +2,7 @@ import {
   optionsIconFilter,
   optionsLabelFilter,
   optionsValueFilter,
-} from '../../../utils/types/common';
+} from '../../../utils/constants';
 
 export const options = [
   {

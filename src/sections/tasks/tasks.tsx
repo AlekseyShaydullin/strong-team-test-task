@@ -19,6 +19,10 @@ import getFilterTasks from '../../utils/helpers/getFilterTasks';
 import getSearch from '../../utils/helpers/getSearch';
 import getSortingDnDTasks from '../../utils/helpers/getSortingDnDTasks';
 
+/**
+ * Компонент Tasks - Отрисовывает основной контент приложения. Счётчики. Фильтры и сортировку. И карточки задач
+ * @returns {JSX.Elemen}
+ */
 const Tasks: FC = (): JSX.Element => {
   const { tasks, counterResult, filter, sorting } = useAppSelector(selectState);
   const [isOpen, setOpenPopup] = useState(false);
@@ -56,19 +60,19 @@ const Tasks: FC = (): JSX.Element => {
     dispatch(getDnDTask({ task, currentTask }));
   }
 
-  // Сортируем массив перед отрисовкой:
+  // Сортируем массив после DnD перемещения перед отрисовкой:
   const sortingDnDTasks = getSortingDnDTasks(tasks);
 
-  // Сортируем массив перед отрисовкой:
+  // Применяем сортировку к массиву перед отрисовкой:
   const sortingTasks = getSortedTasks(sortingDnDTasks, sorting);
 
   // Применяем фильтры к массиву перед отрисовкой:
   const filterTasks = getFilterTasks(sortingTasks, filter);
 
+  // Открытие Попапа изменения таски
   const openPopup = (id: string): void => {
     setOpenPopup(!isOpen);
     const todo = tasks.find((task) => task.id === id);
-
     if (!todo) {
       setTodo(null);
     } else {
@@ -76,18 +80,18 @@ const Tasks: FC = (): JSX.Element => {
     }
   };
 
+  // Получение строки поиска
   const getValueSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
+  // Сброс строки поиска
   const resetSearch = () => {
     () => setSearch('');
   };
 
   // Производим поиск в массиве перед отрисовкой:
   const foundTasks = getSearch(filterTasks, search);
-
-  console.log(foundTasks);
 
   return (
     <section className={style.tasks}>

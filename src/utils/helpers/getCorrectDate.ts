@@ -1,3 +1,8 @@
+/**
+ * Функция преобразования даты в формат DD.MM.YYYY
+ * @param date Передаём дату.
+ * @returns {string} Возвращает дату в формате DD.MM.YYYY.
+ */
 export const getCorrectDate = (value: string): string => {
   const date = value.split('/');
 

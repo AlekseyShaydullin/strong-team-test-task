@@ -3,12 +3,34 @@ import style from './counter.module.scss';
 import Typography from '../typography/typography';
 
 interface ICounter {
+  /**
+   * Тайтл счётчика
+   */
   title: string;
+  /**
+   * Количество задач
+   */
   counterTask: number;
+  /**
+   * Количество выполненых задач
+   */
   counterResult?: number;
+  /**
+   * Опциональный флаг. Определяет, показывает компонент сравнительный результат или нет
+   */
   result?: boolean;
 }
 
+/**
+ * Компонент-обёртка для счётчика задач
+ * @example
+ * <Counter
+ *   title={'Всего задач:'}
+ *   counterTask={counterTask}
+ *   counterResult={counterResult}
+ *   result
+ * />
+ */
 const Counter: FC<ICounter> = ({
   title,
   counterTask,

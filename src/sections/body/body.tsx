@@ -9,9 +9,13 @@ import { optionsRadioButtons } from '../../components/form/radioButtonsConfig';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/redux';
 import { addTask, selectState } from '../../store/reducers/tasksSlice';
 
-import { optionsLabel } from '../../utils/types/common';
 import { getConvertDate } from '../../utils/helpers/getConvertDate';
+import { optionsLabel } from '../../utils/constants';
 
+/**
+ * Компонент Body - Отрисовывает тело приложения
+ * @returns {JSX.Elemen}
+ */
 const Body: FC = (): JSX.Element => {
   const [todo, setTodo] = useState<string>('');
   const [plans, setPlans] = useState<string>(optionsLabel.WORK);
@@ -19,14 +23,20 @@ const Body: FC = (): JSX.Element => {
   const { counterPosition } = useAppSelector(selectState);
 
   const dispatch = useAppDispatch();
+
   const date = getConvertDate(startDate);
 
+  // Получаем текст задачи
   const getTextTask = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setTodo(e.target.value);
   };
 
-  console.log(counterPosition);
+  // Получаем категорию задачи
+  const changePlan = (option: string) => {
+    setPlans(option);
+  };
 
+  // Сохроняем Задачу в стор
   const saveTask = () => {
     if (todo.trim().length) {
       dispatch(addTask({ todo, date, plans, counterPosition }));
@@ -34,10 +44,6 @@ const Body: FC = (): JSX.Element => {
       setPlans(optionsLabel.WORK);
       setStartDate(new Date());
     }
-  };
-
-  const changePlan = (option: string) => {
-    setPlans(option);
   };
 
   return (

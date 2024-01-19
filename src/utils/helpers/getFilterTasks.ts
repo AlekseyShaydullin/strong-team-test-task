@@ -1,14 +1,14 @@
 import { produce } from 'immer';
+
 import { ITask } from '../../models/ITask';
 
 /**
  * Функция фильтрации данных
- * @param value - Принимает контекст
- * @returns Возвращает отсортированный (по дате, по длительности) массив объектов
+ * @param tasks - Массив задач
+ * @param filter - Категорию фильтра
+ * @returns {Array<ITask>} Возвращает отфильтрованный массив задач
  */
 const getFilterTasks = (tasks: Array<ITask>, filter: string): Array<ITask> => {
-  console.log(filter);
-
   const filterTasks = produce(tasks, (draft) => {
     // Если не выбранf категория фильтрации, то возвращаем исходный массив с задачами
     if (filter === 'default') {

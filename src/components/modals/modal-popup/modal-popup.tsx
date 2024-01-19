@@ -14,6 +14,13 @@ interface IModalPopup {
   closeIcon?: boolean;
 }
 
+/**
+ * Универсальный компонент ModalPopup - Модальное окно с контентом
+ * @param onClick - callback функция
+ * @param children - Дочерний компонент с контентом попапа
+ * @param closeIcon - Состояние показывающее нужна ли закрывающая кнопка
+ * @returns {JSX.Element}
+ */
 const ModalPopup: FC<IModalPopup> = ({
   onClick,
   children,

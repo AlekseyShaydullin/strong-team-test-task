@@ -6,6 +6,11 @@ interface IModalOverlayPopup {
   onClick: () => void;
 }
 
+/**
+ * Компонент ModalOverlayPopup - Задник модалки
+ * @param onClick - callback функция
+ * @returns {JSX.Element}
+ */
 const ModalOverlayPopup: FC<IModalOverlayPopup> = ({
   onClick,
 }): JSX.Element => {

@@ -2,7 +2,7 @@ import {
   optionsIconSorting,
   optionsLabelSorting,
   optionsValueSorting,
-} from '../../../utils/types/common';
+} from '../../../utils/constants';
 
 export const options = [
   {

@@ -7,12 +7,17 @@ import Menu from '../../menu/menu';
 
 import { useAppDispatch } from '../../../utils/hooks/redux';
 import useOutsideClickAndEscape from '../../../utils/hooks/useOutsideClickAndEscape';
-import { IOptions, optionsValueSorting } from '../../../utils/types/common';
+import { IOptions } from '../../../utils/types/common';
+import { optionsValueSorting } from '../../../utils/constants';
 
 import { selectSorting } from '../../../store/reducers/tasksSlice';
 
 import { options } from './sortingConfig';
 
+/**
+ * Компонент SortingPicker - Отрисовывает Дропдаун отвечающий за сбор информации о сортировки задач. И запускает сортировку
+ * @returns {JSX.Element}
+ */
 const SortingPicker: FC = (): JSX.Element => {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   const [filter, setFilter] = useState<boolean>(false);
@@ -25,29 +30,32 @@ const SortingPicker: FC = (): JSX.Element => {
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  // Переключатель Дропдауна
   const toggleDropDown = () => {
     setShowDropDown(!showDropDown);
   };
 
+  // Собираем информацию из Дропдауна
   const handleOptionClick = (e: string, options: Array<IOptions>) => {
     const optionClick = options.find((option) => option.value === e);
     const sorting = optionClick!.value;
-
     setShowDropDown(false);
     setSortingType(sorting);
     setFilter(true);
   };
 
+  // Сортируем задачи согласно выбранному типу. И сбрасываем сортировку при обновлении страницы
   useEffect(() => {
     dispatch(selectSorting(sortingType));
-
     return () => {
       dispatch(selectSorting(optionsValueSorting.DEFAULT));
     };
   }, [dispatch, sortingType]);
 
+  // Определям тайтл дропдауна
   const titleButton = options.find((option) => option.value === sortingType);
 
+  // Хук отвечающий за закрытие дропдауна
   useOutsideClickAndEscape(
     menuRef,
     document,

@@ -65,7 +65,6 @@ type Ref = HTMLButtonElement;
  *    id={id}
  * />
  */
-
 const ButtonIconText = forwardRef<Ref, IButtonIconText>(
   (
     {

@@ -6,7 +6,7 @@ import {
   IAddTaskAction,
   IChangeTaskAction,
   IGetDnDTask,
-} from '../../utils/types/common';
+} from '../../utils/types/redux';
 
 interface ITodo {
   tasks: Array<ITask>;
@@ -30,6 +30,7 @@ const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
+    // Добавляем новую таску:
     addTask(state, action: PayloadAction<IAddTaskAction>) {
       state.tasks.push({
         id: uuid4(),
@@ -41,6 +42,7 @@ const tasksSlice = createSlice({
       });
       state.counterPosition++;
     },
+    // Отмечаем выполнено задание или нет:
     addResultTask(state, action: PayloadAction<string>) {
       const task = state.tasks.find((todo) => todo.id === action.payload);
       if (task && !task.result) {
@@ -51,6 +53,7 @@ const tasksSlice = createSlice({
         state.counterResult--;
       }
     },
+    // Удаляем таску:
     deleteTask(state, action: PayloadAction<string>) {
       const task = state.tasks.find((todo) => todo.id === action.payload);
       state.tasks = state.tasks.filter((todo) => todo.id !== action.payload);
@@ -58,16 +61,19 @@ const tasksSlice = createSlice({
         state.counterResult--;
       }
     },
+    // Выполням фильтрацию в зависимости от выбранной категории:
     selectFilter(state, action: PayloadAction<string>) {
       if (state.filter !== action.payload) {
         state.filter = action.payload;
       }
     },
+    // Выполням сортировку в зависимости от выбранной категории:
     selectSorting(state, action: PayloadAction<string>) {
       if (state.sorting !== action.payload) {
         state.sorting = action.payload;
       }
     },
+    // Вносим изменения в таску:
     changeTask(state, action: PayloadAction<IChangeTaskAction>) {
       state.tasks.forEach((task) => {
         if (task.id === action.payload.id) {
@@ -77,6 +83,7 @@ const tasksSlice = createSlice({
         }
       });
     },
+    // Меняем позициями задачи на доске:
     getDnDTask(state, action: PayloadAction<IGetDnDTask>) {
       state.tasks.map((todo) => {
         if (

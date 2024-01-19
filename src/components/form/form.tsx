@@ -22,6 +22,20 @@ interface IForm {
   changePlan: (option: string) => void;
 }
 
+/**
+ * Универсальный компонет Form
+ * @param valueForm - value Формы
+ * @param placeholder - value Placeholder
+ * @param startDate - Сегодняшняя дата
+ * @param iconButton - Название иконки кнопки
+ * @param titleButton - Название кнопки
+ * @param options - Опции радио кнопок
+ * @param getTextTask - callback функция для получения текста задачи
+ * @param setStartDate - Экшен для получения выбранной даты
+ * @param saveTask - callback функция сохроняющая изменения задачи
+ * @param changePlan - callback функция отвечающа за сохраниение выбранной категории задачи
+ * @returns {JSX.Element}
+ */
 const Form: FC<IForm> = ({
   valueForm,
   placeholder,

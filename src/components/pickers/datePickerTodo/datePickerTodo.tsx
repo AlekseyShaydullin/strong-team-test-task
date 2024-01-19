@@ -9,7 +9,16 @@ interface iProps {
   setStartDate: Dispatch<SetStateAction<Date>>;
 }
 
-const DatePickerTodo: FC<iProps> = ({ startDate, setStartDate }) => {
+/**
+ * Библиточный компонент DatePickerTodo - Задает дату
+ * @param startDate - Сегоднешнее число
+ * @param setStartDate - Экшен для сохранения выбранной даты
+ * @returns {JSX.Element}
+ */
+const DatePickerTodo: FC<iProps> = ({
+  startDate,
+  setStartDate,
+}): JSX.Element => {
   registerLocale('ru', ru);
 
   return (

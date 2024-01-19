@@ -3,6 +3,10 @@ import style from './empty.module.scss';
 import Icon from '../ui/icon/icon';
 import Typography from '../ui/typography/typography';
 
+/**
+ * Компонент Empty - Отрисовывается, когда нет задачь в туду листе
+ * @returns {JSX.Element}
+ */
 const Empty: FC = (): JSX.Element => {
   return (
     <div className={style.empty__wrapper}>

@@ -1,3 +1,8 @@
+/**
+ * Функция преобразования даты для тасок в формате: "1 Января"
+ * @param date  Передаём дату.
+ * @returns {string} Возвращает дату в формате: "1 Января".
+ */
 export const getLocalizationDate = (date: string): string => {
   const year = date.slice(0, 4);
   const month = date.slice(5, 7);

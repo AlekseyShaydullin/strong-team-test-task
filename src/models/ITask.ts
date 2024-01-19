@@ -1,9 +1,3 @@
-export enum optionsPlans {
-  IMPORTANT = 'Важное',
-  HOME = 'Дом',
-  WORK = 'Работа',
-}
-
 export interface ITask {
   id: string;
   position: number;

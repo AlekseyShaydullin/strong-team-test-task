@@ -11,6 +11,12 @@ interface IFilters {
   onClick: () => void;
 }
 
+/**
+ * Компонент Filters - Отрисовывает Дропдауны для выбора сортировки и фильтрации. Так же отрисовывает инпут поиска
+ * @param onChange - callback функция вызывающаяся при изменении инпута поиска
+ * @param onClick - callback функция вызывающаяся при клике на кнопку сброса поиска
+ * @returns {JSX.Element}
+ */
 const Filters: FC<IFilters> = ({ onChange, onClick }): JSX.Element => {
   return (
     <section className={style.filters__wrapper}>

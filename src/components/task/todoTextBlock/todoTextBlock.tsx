@@ -13,11 +13,19 @@ interface ITodoTextBlock {
   plans: string;
 }
 
+/**
+ * Компонент TodoTextBlock - Отвечает за отрисовку контента таски
+ * @param date - Дата к которой необходимо выполнить задачу
+ * @param task - Текст задачи
+ * @param plans - Категория задачи
+ * @param checked - Состояние показывающее выполненна таска или нет
+ * @returns {JSX.Element}
+ */
 const TodoTextBlock: FC<ITodoTextBlock> = ({
-  checked,
   date,
   task,
   plans,
+  checked,
 }): JSX.Element => {
   return (
     <div className={style.todo}>

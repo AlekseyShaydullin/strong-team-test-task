@@ -8,9 +8,26 @@ import { IOptions } from '../../../utils/types/common';
 import Icon from '../../ui/icon/icon';
 
 interface IRadioButtons {
+  /**
+   * Опции радио кнопок
+   */
   option: IOptions;
+  /**
+   * Состояние показывающее выбор радио кнопки
+   */
   checked: boolean;
+  /**
+   * callback функция соберющая информациию о выбранной категории задачи
+   * @param option - Опция радио кнопки
+   * @returns {void}
+   */
   changePlan: (option: string) => void;
+  /**
+   * callback функция изменяющее состояние выбранной радио кнопки
+   * @param id - id радио кнопки
+   * @param option - Опция радио кнопки
+   * @returns {void}
+   */
   togglePlans: (id: string, option: string) => void;
 }
 

@@ -3,6 +3,10 @@ import style from './header.module.scss';
 import Icon from '../../components/ui/icon/icon';
 import Typography from '../../components/ui/typography/typography';
 
+/**
+ * Компонент Header - Отрисовывает шапку приложения
+ * @returns {JSX.Element}
+ */
 const Header: FC = (): JSX.Element => {
   return (
     <header className={style.header}>

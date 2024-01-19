@@ -7,6 +7,12 @@ interface ICounters {
   counterResult: number;
 }
 
+/**
+ * Компонент - Counters. Отрисовывает счётчики задач
+ * @param counterTask - Общее количество задач
+ * @param counterResult - Количество выполненых задач
+ * @returns {JSX.Element}
+ */
 const Counters: FC<ICounters> = ({
   counterTask,
   counterResult,
