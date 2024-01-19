@@ -32,7 +32,7 @@
   &::after {
     content: '';
     position: absolute;
-    right: 5px;
+    right: 4px;
     bottom: 5px;
     @include size(0, 0);
     border: solid $gray-100;

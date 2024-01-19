@@ -13,10 +13,10 @@ const Empty: FC = (): JSX.Element => {
       <Icon name="clipboard-start" isColored extraClass={style.icon} />
       <div className={style.title__wrapper}>
         <Typography tag="span" className={style.title}>
-          У вас еще нет зарегистрированных задач
+          {'У вас еще нет зарегистрированных задач'}
         </Typography>
         <Typography tag="span">
-          Создавайте задачи и организуйте свои дела
+          {'Создавайте задачи и организовывайте свои дела'}
         </Typography>
       </div>
     </div>

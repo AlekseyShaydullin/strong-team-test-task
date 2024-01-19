@@ -21,7 +21,7 @@ const Counters: FC<ICounters> = ({
     <div className={style.counters__wrapper}>
       <Counter title={'Всего задач:'} counterTask={counterTask} />
       <Counter
-        title={'Выполненно задач:'}
+        title={'Выполнено задач:'}
         counterTask={counterTask}
         counterResult={counterResult}
         result

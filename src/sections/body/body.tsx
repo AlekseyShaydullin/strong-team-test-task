@@ -52,7 +52,7 @@ const Body: FC = (): JSX.Element => {
         valueForm={todo}
         placeholder={'Добавить новую задачу'}
         startDate={startDate}
-        iconButton={'plus'}
+        iconButton={'plus-button'}
         titleButton={'Создать'}
         options={optionsRadioButtons}
         getTextTask={getTextTask}
