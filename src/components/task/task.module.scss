@@ -28,3 +28,11 @@
     color: $gray-100;
   }
 }
+
+.dragOver {
+  background: $gray-400;
+}
+
+.dragLeave {
+  background: $gray-300;
+}

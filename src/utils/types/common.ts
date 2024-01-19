@@ -1,3 +1,5 @@
+import { ITask } from '../../models/ITask';
+
 /**
  * Типизация роутов
  */
@@ -9,10 +11,16 @@ export interface IAddTaskAction {
   todo: string;
   date: string;
   plans: string;
+  counterPosition: number;
 }
 
 export interface IChangeTaskAction extends IAddTaskAction {
   id: string;
+}
+
+export interface IGetDnDTask {
+  task: ITask;
+  currentTask: ITask | null;
 }
 
 export interface IOptions {

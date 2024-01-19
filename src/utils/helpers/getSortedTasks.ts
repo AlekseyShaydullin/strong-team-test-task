@@ -12,7 +12,7 @@ const getSortedTasks = (tasks: Array<ITask>, sorting: string): Array<ITask> => {
   const sortedTasks = produce(tasks, (draft) => {
     // Если не выбран вид сортировки, то возвращаем исходные перевёрнутый массив с задачами
     if (sorting === 'default') {
-      draft = tasks.slice().reverse();
+      draft = tasks.slice();
     }
     // Если сортируем по дате выполнения задачи
     else if (

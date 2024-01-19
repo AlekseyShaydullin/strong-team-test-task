@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { DragEvent, FC } from 'react';
+import cn from 'classnames';
 
 import style from './task.module.scss';
 
@@ -15,10 +16,27 @@ import TodoTextBlock from './todoTextBlock/todoTextBlock';
 
 interface ITaskProps {
   tasks: ITask;
+  isLeave: boolean;
+  isOver: boolean;
   openPopup: (id: string) => void;
+  onDragStart: () => void;
+  onDragLeave: () => void;
+  onDragEnd: () => void;
+  onDragOver: (e: DragEvent<HTMLLIElement>) => void;
+  onDrop: (e: DragEvent<HTMLLIElement>) => void;
 }
 
-const Task: FC<ITaskProps> = ({ tasks, openPopup }): JSX.Element => {
+const Task: FC<ITaskProps> = ({
+  tasks,
+  isLeave,
+  isOver,
+  openPopup,
+  onDragStart,
+  onDragLeave,
+  onDragEnd,
+  onDragOver,
+  onDrop,
+}): JSX.Element => {
   const { date, id, result, plans, task } = tasks;
   const dispatch = useAppDispatch();
 
@@ -29,7 +47,18 @@ const Task: FC<ITaskProps> = ({ tasks, openPopup }): JSX.Element => {
   const localizationDate = getLocalizationDate(date);
 
   return (
-    <li className={style.task__wrapper}>
+    <li
+      className={cn(
+        style.task__wrapper,
+        isLeave ? style.dragLeave : isOver ? style.dragOver : ''
+      )}
+      onDragStart={onDragStart}
+      onDragLeave={onDragLeave}
+      onDragEnd={onDragEnd}
+      onDragOver={onDragOver}
+      onDrop={onDrop}
+      draggable
+    >
       <Checkbox checked={result} id={id} />
       <TodoTextBlock
         checked={result}

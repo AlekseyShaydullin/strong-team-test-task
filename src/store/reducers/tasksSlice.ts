@@ -2,12 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuid4 } from 'uuid';
 
 import { ITask } from '../../models/ITask';
-import { IAddTaskAction, IChangeTaskAction } from '../../utils/types/common';
+import {
+  IAddTaskAction,
+  IChangeTaskAction,
+  IGetDnDTask,
+} from '../../utils/types/common';
 
 interface ITodo {
   tasks: Array<ITask>;
   sortingTasks: Array<ITask>;
-  counter: number;
+  counterResult: number;
+  counterPosition: number;
   filter: string;
   sorting: string;
 }
@@ -15,7 +20,8 @@ interface ITodo {
 const initialState: ITodo = {
   tasks: [],
   sortingTasks: [],
-  counter: 0,
+  counterResult: 0,
+  counterPosition: 1,
   filter: 'DEFAULT',
   sorting: 'DEFAULT',
 };
@@ -27,27 +33,29 @@ const tasksSlice = createSlice({
     addTask(state, action: PayloadAction<IAddTaskAction>) {
       state.tasks.push({
         id: uuid4(),
+        position: action.payload.counterPosition,
         task: action.payload.todo,
         result: false,
         date: action.payload.date,
         plans: action.payload.plans,
       });
+      state.counterPosition++;
     },
     addResultTask(state, action: PayloadAction<string>) {
       const task = state.tasks.find((todo) => todo.id === action.payload);
       if (task && !task.result) {
         task.result = !task.result;
-        state.counter++;
+        state.counterResult++;
       } else if (task && task.result) {
         task.result = !task.result;
-        state.counter--;
+        state.counterResult--;
       }
     },
     deleteTask(state, action: PayloadAction<string>) {
       const task = state.tasks.find((todo) => todo.id === action.payload);
       state.tasks = state.tasks.filter((todo) => todo.id !== action.payload);
       if (task && task.result) {
-        state.counter--;
+        state.counterResult--;
       }
     },
     selectFilter(state, action: PayloadAction<string>) {
@@ -69,6 +77,22 @@ const tasksSlice = createSlice({
         }
       });
     },
+    getDnDTask(state, action: PayloadAction<IGetDnDTask>) {
+      state.tasks.map((todo) => {
+        if (
+          todo.id === action.payload.task.id &&
+          action.payload.currentTask !== null
+        ) {
+          todo.position = action.payload.currentTask.position;
+        }
+        if (
+          action.payload.currentTask !== null &&
+          todo.id === action.payload.currentTask.id
+        ) {
+          todo.position = action.payload.task.position;
+        }
+      });
+    },
   },
   selectors: {
     selectState: (state) => state,
@@ -82,6 +106,7 @@ export const {
   selectFilter,
   selectSorting,
   changeTask,
+  getDnDTask,
 } = tasksSlice.actions;
 export const { selectState } = tasksSlice.selectors;
 
