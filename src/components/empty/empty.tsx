@@ -10,7 +10,7 @@ import Typography from '../ui/typography/typography';
 const Empty: FC = (): JSX.Element => {
   return (
     <div className={style.empty__wrapper}>
-      <Icon name="clipboard" isColored extraClass={style.icon} />
+      <Icon name="clipboard-start" isColored extraClass={style.icon} />
       <div className={style.title__wrapper}>
         <Typography tag="span" className={style.title}>
           У вас еще нет зарегистрированных задач
