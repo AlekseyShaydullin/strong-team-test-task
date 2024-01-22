@@ -66,31 +66,29 @@ const SortingPicker: FC = (): JSX.Element => {
   );
   return (
     <section className={style.sorter}>
-      <div className={style.dropdown__wrapper}>
-        <ButtonIconText
-          icon="chevron"
-          tag="span"
-          title={titleButton!.value}
-          iconClass={!showDropDown ? style.icon : style.iconOpen}
-          titleClass={
-            filter ? `${style.title} ${style.title_filter}` : `${style.title}`
-          }
-          isColored
-          iconFirst
-          onClick={toggleDropDown}
-          ref={buttonRef}
+      <ButtonIconText
+        icon="chevron"
+        tag="span"
+        title={titleButton!.value}
+        iconClass={!showDropDown ? style.icon : style.iconOpen}
+        titleClass={
+          filter ? `${style.title} ${style.title_filter}` : `${style.title}`
+        }
+        isColored
+        iconFirst={false}
+        onClick={toggleDropDown}
+        ref={buttonRef}
+      />
+      {showDropDown && (
+        <Menu
+          ref={menuRef}
+          options={options}
+          onItemClick={(e) => handleOptionClick(e.value, options)}
+          layoutClassName={style.dropdown}
+          checkOption={sortingType}
+          itemClassName={style.itemParent}
         />
-        {showDropDown && (
-          <Menu
-            ref={menuRef}
-            options={options}
-            onItemClick={(e) => handleOptionClick(e.value, options)}
-            layoutClassName={style.dropdown}
-            checkOption={sortingType}
-            itemClassName={style.itemParent}
-          />
-        )}
-      </div>
+      )}
     </section>
   );
 };

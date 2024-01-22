@@ -19,6 +19,13 @@ export enum optionsLabel {
   WORK = 'WORK',
 }
 
+/** Опции значений для для радио кнопок Модалки */
+export enum optionsLabelModal {
+  IMPORTANT = 'IMPORTANTMODAL',
+  HOME = 'HOMEMODAL',
+  WORK = 'WORKMODAL',
+}
+
 /** Опции лэйблов для фильтра */
 export enum optionsValueFilter {
   DEFAULT = 'Отфильтровать',

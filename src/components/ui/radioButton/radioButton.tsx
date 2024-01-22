@@ -25,17 +25,9 @@ interface IRadioButton {
    */
   labelClass?: string;
   /**
-   * Состояние радио кнопки
-   */
-  checked: boolean;
-  /**
    * callback при клике на радио кнопку
    */
   onClick: (option: string) => void;
-  /**
-   * callback при изменении состояния радио кнопки
-   */
-  onChange: (id: string, option: string) => void;
   /**
    * id радио кнопки
    */
@@ -62,9 +54,7 @@ const RadioButton: FC<IRadioButton> = ({
   wrapperClass,
   radioClass,
   labelClass,
-  checked,
   onClick,
-  onChange,
   id,
   ...rest
 }) => {
@@ -78,8 +68,6 @@ const RadioButton: FC<IRadioButton> = ({
         name="radio"
         id={id}
         className={cn(style[`radio`], radioClass)}
-        checked={checked}
-        onChange={() => onChange(id, option)}
         {...rest}
       />
       <label htmlFor={id} className={cn(style[`label`], labelClass)}>

@@ -7,7 +7,7 @@ import Form from '../../form/form';
 import Icon from '../../ui/icon/icon';
 import Typography from '../../ui/typography/typography';
 
-import { optionsRadioButtons } from '../../form/radioButtonsConfig';
+import { optionsRadioButtonsModal } from './optionsRadioButtonsModal';
 
 import { getConvertDate } from '../../../utils/helpers/getConvertDate';
 import { ITask } from '../../../models/ITask';
@@ -50,6 +50,8 @@ const ModalChangeTask: FC<IModalChangeTask> = ({
 
   // Сохраняем собранные изменения в сторе
   const saveTask = () => {
+    console.log(plans);
+
     if (todo.trim().length) {
       closeModal();
       dispatch(changeTask({ todo, date, plans, id }));
@@ -78,7 +80,7 @@ const ModalChangeTask: FC<IModalChangeTask> = ({
             startDate={startDate}
             iconButton={'plus-button'}
             titleButton={'Сохранить'}
-            options={optionsRadioButtons}
+            options={optionsRadioButtonsModal}
             getTextTask={getTextTask}
             setStartDate={setStartDate}
             saveTask={saveTask}

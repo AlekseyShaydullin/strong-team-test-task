@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FC, SetStateAction, useState } from 'react';
+import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import style from './form.module.scss';
@@ -8,6 +8,7 @@ import ButtonIconText from '../ui/buttons/buttonIconText/buttonIconText';
 
 import RadioButtons from './radioButtons/radioButtons';
 import { IOptionsRadioButtons } from './radioButtonsConfig';
+import { IOptionsRadioButtonsModal } from '../modals/modal-change-task/optionsRadioButtonsModal';
 
 interface IForm {
   valueForm: string;
@@ -15,7 +16,7 @@ interface IForm {
   startDate: Date;
   iconButton: string;
   titleButton: string;
-  options: Array<IOptionsRadioButtons>;
+  options: Array<IOptionsRadioButtons> | Array<IOptionsRadioButtonsModal>;
   getTextTask: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   setStartDate: Dispatch<SetStateAction<Date>>;
   saveTask: () => void;
@@ -48,15 +49,6 @@ const Form: FC<IForm> = ({
   saveTask,
   changePlan,
 }): JSX.Element => {
-  const [checked, setChecked] = useState<boolean>(true);
-
-  const togglePlans = (id: string, label: string) => {
-    if (id === label) {
-      setChecked(!checked);
-    }
-    return;
-  };
-
   return (
     <section className={style.formWrapper}>
       <label className={style.label} htmlFor="textarea">
@@ -87,9 +79,7 @@ const Form: FC<IForm> = ({
             return (
               <RadioButtons
                 option={option}
-                checked={checked}
                 changePlan={changePlan}
-                togglePlans={togglePlans}
                 key={index}
               />
             );

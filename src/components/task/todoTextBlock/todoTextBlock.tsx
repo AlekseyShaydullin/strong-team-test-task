@@ -32,16 +32,18 @@ const TodoTextBlock: FC<ITodoTextBlock> = ({
       <div className={style.task}>
         <Icon
           name={
-            plans === 'IMPORTANT'
+            plans === 'IMPORTANT' || plans === 'IMPORTANTMODAL'
               ? 'important'
-              : plans === 'HOME'
+              : plans === 'HOME' || plans === 'HOMEMODAL'
                 ? 'home'
                 : 'work'
           }
           isColored
           extraClass={cn(
             style.icon,
-            plans === 'IMPORTANT' ? style.important : ''
+            plans === 'IMPORTANT' || plans === 'IMPORTANTMODAL'
+              ? style.important
+              : ''
           )}
         />
         <Typography
@@ -50,7 +52,7 @@ const TodoTextBlock: FC<ITodoTextBlock> = ({
             style.span,
             checked
               ? style.title__checked
-              : plans === 'IMPORTANT'
+              : plans === 'IMPORTANT' || plans === 'IMPORTANTMODAL'
                 ? style.important
                 : ''
           )}

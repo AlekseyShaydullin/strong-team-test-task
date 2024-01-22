@@ -2,7 +2,8 @@
 @use '../../../stylesheets/mixins' as *;
 
 .sorter {
-  @include flex(row, center, center, 8px);
+  @include flex(row, end, center, 8px);
+  width: 172px;
 }
 
 .icon {

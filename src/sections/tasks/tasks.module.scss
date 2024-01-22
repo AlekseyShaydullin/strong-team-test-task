@@ -3,7 +3,7 @@
 
 .tasks {
   @include flex(column, center, center, 10px);
-  max-height: 80vh;
+  max-height: 81vh;
 }
 
 .wrapperTasks {
@@ -16,7 +16,7 @@
 }
 
 .overflow {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 ul {
