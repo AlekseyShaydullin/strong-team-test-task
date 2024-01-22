@@ -13,6 +13,10 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/eslint/eslint-original.svg" title="Eslint"**alt="Eslint" width="50" height="50"/>&nbsp;
 </div>
 
+### Визуализация проекта:
+![Снимок экрана 2024-01-23 021247](https://github.com/AlekseyShaydullin/strong-team-test-task/assets/101606512/333505d3-8b2b-42ac-a98b-0f9be50a365f)
+![Снимок экрана 2024-01-23 021557](https://github.com/AlekseyShaydullin/strong-team-test-task/assets/101606512/a8c093b1-ba1c-447b-a980-ca11b694066b)
+
 ### Для локального запуска используйте:
 
 `npm i`
