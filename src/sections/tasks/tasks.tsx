@@ -29,7 +29,6 @@ const Tasks: FC = (): JSX.Element => {
   const [todo, setTodo] = useState<ITask | null>(null);
   const [search, setSearch] = useState<string>('');
   const dispatch = useAppDispatch();
-  console.log(tasks);
 
   // Реализация Drag and Drop перемещений тасок:
   const handleOnDragEnd = (result: DropResult) => {
@@ -38,8 +37,10 @@ const Tasks: FC = (): JSX.Element => {
     const itemSourceIndex = source.index;
     // Позиция куда перенесли
     const itemDestinationIndex = destination?.index;
-    // отмена если нет объекта-цели
+    // отмена если нет объекта цели
     if (!destination) {
+      return;
+    } else if (filter !== 'Отфильтровать' || sorting !== 'Отсортировать') {
       return;
     } else {
       dispatch(getDnDTask({ itemSourceIndex, itemDestinationIndex }));
@@ -75,8 +76,6 @@ const Tasks: FC = (): JSX.Element => {
 
   // Производим поиск в массиве перед отрисовкой:
   const foundTasks = getSearch(filterTasks, search);
-
-  console.log(foundTasks);
 
   return (
     <section className={style.tasks}>

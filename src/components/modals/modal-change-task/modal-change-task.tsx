@@ -32,7 +32,7 @@ const ModalChangeTask: FC<IModalChangeTask> = ({
 }): JSX.Element => {
   const [todo, setTodo] = useState<string>(task.task);
   const [plans, setPlans] = useState<string>(task.plans);
-  const [startDate, setStartDate] = useState<Date>(new Date());
+  const [startDate, setStartDate] = useState<Date>(new Date(task.date));
   const id = task.id;
 
   const dispatch = useAppDispatch();

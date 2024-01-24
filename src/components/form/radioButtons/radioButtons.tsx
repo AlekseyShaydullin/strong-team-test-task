@@ -24,7 +24,6 @@ interface IRadioButtons {
  * @example
  * <RadioButtons
  *  option={option}
- *  checked={checked}
  *  changePlan={changePlan}
  *  togglePlans={togglePlans}
  * />
