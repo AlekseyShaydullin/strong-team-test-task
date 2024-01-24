@@ -13,17 +13,21 @@ import storage from 'redux-persist/lib/storage';
 
 import tasksReducer from './reducers/tasksSlice';
 
+// собираем редьюсеры в основной рутовый:
 const rootReducer = combineSlices({
   tasks: tasksReducer,
 });
 
+// конфиг persist:
 const persistConfig = {
   key: 'root',
   storage,
 };
 
+// подключаем persist:
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+// собираем стор:
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>

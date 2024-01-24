@@ -33,16 +33,20 @@ const Tasks: FC = (): JSX.Element => {
   // Реализация Drag and Drop перемещений тасок:
   const handleOnDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-    // Позиция от куда взяли
+    // Позиция от куда взяли:
     const itemSourceIndex = source.index;
-    // Позиция куда перенесли
+    // Позиция куда перенесли:
     const itemDestinationIndex = destination?.index;
-    // отмена если нет объекта цели
+    // отмена если нет объекта цели:
     if (!destination) {
       return;
-    } else if (filter !== 'Отфильтровать' || sorting !== 'Отсортировать') {
+    }
+    // отмена если происходит сортировка или фильтрация массива:
+    else if (filter !== 'Отфильтровать' || sorting !== 'Отсортировать') {
       return;
-    } else {
+    }
+    // иначе меняем полжение задачи на доске:
+    else {
       dispatch(getDnDTask({ itemSourceIndex, itemDestinationIndex }));
     }
   };

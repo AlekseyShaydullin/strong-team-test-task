@@ -81,26 +81,12 @@ const tasksSlice = createSlice({
         }
       });
     },
-    // Меняем позициями задачи на доске:
+    // Меняем позиции задач на доске:
     getDnDTask(state, action: PayloadAction<IGetDnDTask>) {
       const result = Array.from(state.tasks);
       const [sourceTask] = result.splice(action.payload.itemSourceIndex, 1);
       result.splice(action.payload.itemDestinationIndex!, 0, sourceTask);
       state.tasks = result;
-
-      // state.tasks.forEach((todo) => {
-      //   console.log(`todo: ${todo.position}`);
-
-      //   if (todo.position === String(action.payload.itemSourceIndex)) {
-      //     console.log(`position: ${todo.position}`);
-
-      //     todo.position = String(action.payload.itemDestinationIndex);
-      //   } else if (
-      //     todo.position === String(action.payload.itemDestinationIndex)
-      //   ) {
-      //     todo.position = String(action.payload.itemSourceIndex);
-      //   }
-      // });
     },
   },
   selectors: {
