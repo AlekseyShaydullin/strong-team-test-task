@@ -1,5 +1,6 @@
-import { ChangeEvent, DragEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import cn from 'classnames';
+import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd';
 
 import style from './tasks.module.scss';
 
@@ -17,7 +18,6 @@ import { ITask } from '../../models/ITask';
 import getSortedTasks from '../../utils/helpers/getSortedTasks';
 import getFilterTasks from '../../utils/helpers/getFilterTasks';
 import getSearch from '../../utils/helpers/getSearch';
-import getSortingDnDTasks from '../../utils/helpers/getSortingDnDTasks';
 
 /**
  * Компонент Tasks - Отрисовывает основной контент приложения. Счётчики. Фильтры и сортировку. И карточки задач
@@ -29,42 +29,25 @@ const Tasks: FC = (): JSX.Element => {
   const [todo, setTodo] = useState<ITask | null>(null);
   const [search, setSearch] = useState<string>('');
   const dispatch = useAppDispatch();
-  // Состояния DnD:
-  const [currentTask, setCurrentTask] = useState<ITask | null>(null);
-  const [isLeave, setLeave] = useState<boolean>(false);
-  const [isOver, setOver] = useState<boolean>(true);
+  console.log(tasks);
 
   // Реализация Drag and Drop перемещений тасок:
-  function dragStartHandler(task: ITask) {
-    setCurrentTask(task);
-    setLeave(true);
-  }
-
-  function dragLeaveHandler() {
-    setLeave(true);
-    setOver(false);
-  }
-
-  function dragEndHandler() {
-    setLeave(false);
-    setOver(true);
-  }
-
-  function dragOverHandler(e: DragEvent<HTMLLIElement>) {
-    e.preventDefault();
-    setOver(true);
-  }
-
-  function dropHandler(e: DragEvent<HTMLLIElement>, task: ITask) {
-    e.preventDefault();
-    dispatch(getDnDTask({ task, currentTask }));
-  }
-
-  // Сортируем массив после DnD перемещения перед отрисовкой:
-  const sortingDnDTasks = getSortingDnDTasks(tasks);
+  const handleOnDragEnd = (result: DropResult) => {
+    const { source, destination } = result;
+    // Позиция от куда взяли
+    const itemSourceIndex = source.index;
+    // Позиция куда перенесли
+    const itemDestinationIndex = destination?.index;
+    // отмена если нет объекта-цели
+    if (!destination) {
+      return;
+    } else {
+      dispatch(getDnDTask({ itemSourceIndex, itemDestinationIndex }));
+    }
+  };
 
   // Применяем сортировку к массиву перед отрисовкой:
-  const sortingTasks = getSortedTasks(sortingDnDTasks, sorting);
+  const sortingTasks = getSortedTasks(tasks, sorting);
 
   // Применяем фильтры к массиву перед отрисовкой:
   const filterTasks = getFilterTasks(sortingTasks, filter);
@@ -93,41 +76,42 @@ const Tasks: FC = (): JSX.Element => {
   // Производим поиск в массиве перед отрисовкой:
   const foundTasks = getSearch(filterTasks, search);
 
+  console.log(foundTasks);
+
   return (
     <section className={style.tasks}>
       <Counters counterTask={tasks.length} counterResult={counterResult} />
       <Filters onChange={getValueSearch} onClick={resetSearch} />
-      <div
-        className={cn(
-          style.wrapperTasks,
-          filterTasks.length !== 0 ? style.overflow : ''
-        )}
-      >
-        <ul>
-          {foundTasks.length !== 0 ? (
-            foundTasks
-              .map((task) => {
-                return (
-                  <Task
-                    key={task.id}
-                    tasks={task}
-                    openPopup={openPopup}
-                    onDragStart={() => dragStartHandler(task)}
-                    onDragLeave={() => dragLeaveHandler()}
-                    onDragEnd={() => dragEndHandler()}
-                    onDragOver={(e) => dragOverHandler(e)}
-                    onDrop={(e) => dropHandler(e, task)}
-                    isLeave={isLeave}
-                    isOver={isOver}
-                  />
-                );
-              })
-              .reverse()
-          ) : (
-            <Empty />
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <div
+          className={cn(
+            style.wrapperTasks,
+            filterTasks.length !== 0 ? style.overflow : ''
           )}
-        </ul>
-      </div>
+        >
+          <Droppable droppableId="tasks">
+            {(provided) => (
+              <ul {...provided.droppableProps} ref={provided.innerRef}>
+                {foundTasks.length !== 0 ? (
+                  foundTasks.map((task, index) => {
+                    return (
+                      <Task
+                        key={task.id}
+                        todo={task}
+                        openPopup={openPopup}
+                        index={index}
+                      />
+                    );
+                  })
+                ) : (
+                  <Empty />
+                )}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </div>
+      </DragDropContext>
       {isOpen && todo && (
         <ModalChangeTask closeModal={() => setOpenPopup(false)} task={todo} />
       )}

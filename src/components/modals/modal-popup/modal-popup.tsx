@@ -45,7 +45,7 @@ const ModalPopup: FC<IModalPopup> = ({
         {children}
         {closeIcon && (
           <ButtonIcon
-            icon="close"
+            icon={'close'}
             isColored
             extraClass={style.icon}
             buttonClass={style.button}

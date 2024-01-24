@@ -10,7 +10,6 @@ import {
 
 interface ITodo {
   tasks: Array<ITask>;
-  sortingTasks: Array<ITask>;
   counterResult: number;
   counterPosition: number;
   filter: string;
@@ -19,9 +18,8 @@ interface ITodo {
 
 const initialState: ITodo = {
   tasks: [],
-  sortingTasks: [],
   counterResult: 0,
-  counterPosition: 1,
+  counterPosition: 0,
   filter: 'DEFAULT',
   sorting: 'DEFAULT',
 };
@@ -34,7 +32,7 @@ const tasksSlice = createSlice({
     addTask(state, action: PayloadAction<IAddTaskAction>) {
       state.tasks.push({
         id: uuid4(),
-        position: action.payload.counterPosition,
+        position: String(action.payload.counterPosition),
         task: action.payload.todo,
         result: false,
         date: action.payload.date,
@@ -85,20 +83,24 @@ const tasksSlice = createSlice({
     },
     // Меняем позициями задачи на доске:
     getDnDTask(state, action: PayloadAction<IGetDnDTask>) {
-      state.tasks.map((todo) => {
-        if (
-          todo.id === action.payload.task.id &&
-          action.payload.currentTask !== null
-        ) {
-          todo.position = action.payload.currentTask.position;
-        }
-        if (
-          action.payload.currentTask !== null &&
-          todo.id === action.payload.currentTask.id
-        ) {
-          todo.position = action.payload.task.position;
-        }
-      });
+      const result = Array.from(state.tasks);
+      const [sourceTask] = result.splice(action.payload.itemSourceIndex, 1);
+      result.splice(action.payload.itemDestinationIndex!, 0, sourceTask);
+      state.tasks = result;
+
+      // state.tasks.forEach((todo) => {
+      //   console.log(`todo: ${todo.position}`);
+
+      //   if (todo.position === String(action.payload.itemSourceIndex)) {
+      //     console.log(`position: ${todo.position}`);
+
+      //     todo.position = String(action.payload.itemDestinationIndex);
+      //   } else if (
+      //     todo.position === String(action.payload.itemDestinationIndex)
+      //   ) {
+      //     todo.position = String(action.payload.itemSourceIndex);
+      //   }
+      // });
     },
   },
   selectors: {

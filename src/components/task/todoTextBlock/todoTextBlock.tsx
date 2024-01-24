@@ -47,7 +47,7 @@ const TodoTextBlock: FC<ITodoTextBlock> = ({
           )}
         />
         <Typography
-          tag="span"
+          tag={'span'}
           className={cn(
             style.span,
             checked
@@ -61,7 +61,7 @@ const TodoTextBlock: FC<ITodoTextBlock> = ({
         </Typography>
       </div>
       <Typography
-        tag="p"
+        tag={'p'}
         className={cn(style.title, checked ? style.title__checked : '')}
       >
         {task}

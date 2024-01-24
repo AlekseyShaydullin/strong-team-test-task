@@ -67,8 +67,8 @@ const SortingPicker: FC = (): JSX.Element => {
   return (
     <section className={style.sorter}>
       <ButtonIconText
-        icon="chevron"
-        tag="span"
+        icon={'chevron'}
+        tag={'span'}
         title={titleButton!.value}
         iconClass={!showDropDown ? style.icon : style.iconOpen}
         titleClass={

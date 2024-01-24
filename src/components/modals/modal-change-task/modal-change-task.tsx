@@ -63,12 +63,12 @@ const ModalChangeTask: FC<IModalChangeTask> = ({
     <ModalPopup onClick={closeModal}>
       <div className={style.wrapper}>
         <div className={style.headerPopup}>
-          <Icon name="rocket" isColored={false} extraClass={style.icon} />
+          <Icon name={'rocket'} isColored={false} extraClass={style.icon} />
           <div className={style.title__wrapper}>
-            <Typography tag="h1" className={style.titleOne}>
+            <Typography tag={'h1'} className={style.titleOne}>
               {'Измените'}
             </Typography>
-            <Typography tag="h1" className={style.titleTwo}>
+            <Typography tag={'h1'} className={style.titleTwo}>
               {'задачу:'}
             </Typography>
           </div>

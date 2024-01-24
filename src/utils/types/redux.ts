@@ -1,5 +1,3 @@
-import { ITask } from '../../models/ITask';
-
 // Типизация Action - addTask
 export interface IAddTaskAction {
   todo: string;
@@ -16,6 +14,6 @@ export interface IChangeTaskAction
 
 // Типизация Action - getDnDTask
 export interface IGetDnDTask {
-  task: ITask;
-  currentTask: ITask | null;
+  itemSourceIndex: number;
+  itemDestinationIndex: number | undefined;
 }

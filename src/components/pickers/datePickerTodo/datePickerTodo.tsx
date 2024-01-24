@@ -25,7 +25,7 @@ const DatePickerTodo: FC<iProps> = ({
     <DatePicker
       selected={startDate}
       onChange={(date: Date) => setStartDate(date)}
-      locale="ru"
+      locale={'ru'}
       customInput={
         <ExampleCustomInput
           value={''}

@@ -51,19 +51,19 @@ const Form: FC<IForm> = ({
 }): JSX.Element => {
   return (
     <section className={style.formWrapper}>
-      <label className={style.label} htmlFor="textarea">
+      <label className={style.label} htmlFor={'textarea'}>
         <TextareaAutosize
           className={style.textarea}
           value={valueForm}
           placeholder={placeholder}
           maxRows={1}
           onChange={(e) => getTextTask(e)}
-          id="textarea"
+          id={'textarea'}
         />
         <DatePickerTodo startDate={startDate} setStartDate={setStartDate} />
         <ButtonIconText
           icon={iconButton}
-          tag="p"
+          tag={'p'}
           title={titleButton}
           isColored
           buttonClass={style.button}

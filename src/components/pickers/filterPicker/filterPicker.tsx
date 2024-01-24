@@ -100,9 +100,9 @@ const FilterPicker: FC = (): JSX.Element => {
       )}
       {filter && (
         <ButtonIconText
-          icon="close"
-          tag="span"
-          title="Сбросить фильтры"
+          icon={'close'}
+          tag={'span'}
+          title={'Сбросить фильтры'}
           isColored
           buttonClass={style.closeButton}
           iconClass={style.icon}

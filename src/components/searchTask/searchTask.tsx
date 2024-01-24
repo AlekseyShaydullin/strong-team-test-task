@@ -20,15 +20,15 @@ interface ISearchTask {
 const SearchTask: FC<ISearchTask> = ({ onChange, onClick }): JSX.Element => {
   return (
     <form className={style.search__form}>
-      <Icon name="search" isColored extraClass={style.iconSearch} />
+      <Icon name={'search'} isColored extraClass={style.iconSearch} />
       <input
         className={style.input}
-        type="text"
-        placeholder="Найти задачу..."
+        type={'text'}
+        placeholder={'Найти задачу...'}
         onChange={onChange}
       />
       <ButtonIcon
-        icon="close"
+        icon={'close'}
         isColored
         extraClass={style.iconClose}
         onClick={onClick}
